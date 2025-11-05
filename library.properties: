@@ -1,0 +1,10 @@
+name=Pekingese
+version=1.0.0
+author=Reptily
+maintainer=Reptily <reptily@mail.ru>
+sentence=Pekinese is a framework for creating REST APIs on NodeMCU ESP32 WiFi modules.
+paragraph=Pekinese is a framework for creating REST APIs on NodeMCU ESP32 WiFi modules.
+category=WiFi
+url=https://github.com/reptily/pekingese
+architectures=*
+license=MIT
