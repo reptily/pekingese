@@ -1,0 +1,125 @@
+openapi: 3.0.2
+info:
+  title: Pekingese
+  description: 'Pekingese RestAPI'
+  version: 1.0.1
+components:
+  responses:
+    400:
+      description: Request method not supported
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+          examples:
+            Example:
+              value:
+                status: ERROR
+                message: Request method not supported
+
+paths:
+  /test:
+    get:
+      summary: Test
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Status
+              example:
+                status: OK
+        400:
+          $ref: '#/components/responses/400'
+
+  /reset:
+    delete:
+      summary: Reset device
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Status
+              example:
+                status: OK
+        400:
+          $ref: '#/components/responses/400'
+
+  /wifi/update_setting:
+    post:
+      summary: Set settings for Wi-Fi
+      parameters:
+        -
+          name: ssid
+          description: SSID Network
+          required: true
+          in: query
+          schema:
+            type: string
+            example: wifi
+        -
+          name: password
+          description: Password Network
+          required: true
+          in: query
+          schema:
+            type: string
+            example: 12345678
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Status
+                  message:
+                    type: string
+                    description: Informations
+              example:
+                status: OK
+                message: Settings is saved
+        400:
+          $ref: '#/components/responses/400'
+
+  /wifi/reset_setting:
+    delete:
+      summary: Reset device settings
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Status
+                  message:
+                    type: string
+                    description: Informations
+              example:
+                status: OK
+                message: Settings is reset
+        400:
+          $ref: '#/components/responses/400'
